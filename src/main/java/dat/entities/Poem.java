@@ -3,11 +3,7 @@ package dat.entities;
 import dat.dtos.PoemDTO;
 import dat.enums.Type;
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.Setter;
-import lombok.NoArgsConstructor;
-import lombok.ToString;
+import lombok.*;
 
 @Getter
 @Setter
@@ -17,15 +13,18 @@ import lombok.ToString;
 @Entity
 public class Poem {
     @Id
-    @GeneratedValue (strategy = GenerationType.IDENTITY)
-    private long id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id", unique = true)
+    private Long id;
+    @Column(name="author", length = 50, nullable = false)
     private String author;
-    @Enumerated(EnumType.STRING)
-    private Type type;
+    @Column(name="poem", length = 1000, nullable = false)
     private String poem;
+    @Enumerated(EnumType.STRING)
+    @Column(name="type", length = 30, nullable = false)
+    private Type type;
     
     public Poem (PoemDTO poemDTO){
-    this.id = poemDTO.getId();
     this.author = poemDTO.getAuthor();
     this.type = poemDTO.getType();
     this.poem = poemDTO.getPoem();

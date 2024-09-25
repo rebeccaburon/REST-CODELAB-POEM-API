@@ -1,17 +1,91 @@
 
 ### GET request for All poems
-GET http://localhost:7000/api/poem
+GET http://localhost:7000/poem
 
-### GET request specific dog with ID
-GET http://localhost:7000/api/poem/1
+### GET request specific poem with ID
+GET http://localhost:7000/poem/7
 
-### POST for creating a dog
-POST http://localhost:700/api/dogs/dog
+### POST example
+POST http://localhost:7000/poems
 Content-Type: application/json
+Accept: application/json
 
-### UPDATE a dog
-PUT http://localhost:7000/api/dogs/1
+[
+  {
+    "author": "Alice Johnson",
+    "poem": "Sunrise paints the sky, Gentle waves kiss sandy shores, Day awakens slow.",
+    "type": "Haiku"
+  },
+  {
+    "author": "Robert Adams",
+    "poem": "Whispers of the breeze, Autumn leaves dance on the ground, Silent moonrise glow.",
+    "type": "Haiku"
+  },
+  {
+    "author": "Emily Baker",
+    "poem": "Winter's first soft snow, Blankets fields in quiet white, Footsteps lost below.",
+    "type": "Haiku"
+  },
+  {
+    "author": "Michael Brown",
+    "poem": "Spring blossoms unfold, Petals drift in morning light, Bees hum, day is bright.",
+    "type": "Haiku"
+  },
+  {
+    "author": "Laura Green",
+    "poem": "Evening sky in red, Clouds float like soft cotton wool, Sun dips, shadows spread.",
+    "type": "Haiku"
+  },
+  {
+    "author": "David Clark",
+    "poem": "Morning dew sparkles, Grass glistens in soft sunlight, Day breaks, fresh and new.",
+    "type": "Haiku"
+  },
+  {
+    "author": "Sophia White",
+    "poem": "Mountain peaks stand tall, Wrapped in mist and morning sun, Silence in the call.",
+    "type": "Haiku"
+  },
+  {
+    "author": "James Martin",
+    "poem": "Ocean waves crash loud, Seagulls cry and salt air stings, Endless water shroud.",
+    "type": "Haiku"
+  },
+  {
+    "author": "Olivia Carter",
+    "poem": "Autumn's golden hue, Leaves fall softly to the ground, Earth in warm embrace.",
+    "type": "Haiku"
+  },
+  {
+    "author": "William Smith",
+    "poem": "Stars fill midnight sky, Whispering tales of old light, Dreams take flight and fly.",
+    "type": "Haiku"
+  }
+]
 
-### DELETE a dog
-DELETE http://localhost:7000/api/dogs/3
+###
+
+POST http://localhost:7000/poem
+Content-Type: application/json
+Accept: application/json
+
+{
+  "author": "William Smith",
+  "poem": "Sunrise paints the sky, Gentle waves kiss sandy shores, Day awakens slow.",
+  "type": "Haiku"
+}
+
+
+### UPDATE
+
+PUT  http://localhost:7000/poem/3
+
+ {
+    "author": "Michael Myers",
+    "poem": "Summers's first soft snow, Blankets fields in quiet white, Footsteps lost below.",
+    "type": "SONNET"
+  }
+
+### DELETE a poem
+DELETE http://localhost:7000/poem/3
 
