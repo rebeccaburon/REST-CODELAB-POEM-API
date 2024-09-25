@@ -1,6 +1,6 @@
 
 ### GET request for All poems
-GET http://localhost:7000/poem
+GET http://localhost:7000/poems
 
 ### GET request specific poem with ID
 GET http://localhost:7000/poem/7

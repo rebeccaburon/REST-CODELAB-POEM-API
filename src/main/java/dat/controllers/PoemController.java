@@ -16,6 +16,16 @@ public class PoemController {
     PoemDTO poemDTO = new PoemDTO();
 
 
+    public void getAllPoems(Context ctx){
+        List <PoemDTO> poemDTOS = poemDAO.getAll();
+        if (poemDTOS.isEmpty()){
+            ctx.status(400);
+        }
+        else {
+            ctx.status(200);
+            ctx.json(poemDTOS);
+        }
+    }
     public void getPoemById(Context ctx) {
 
         long poemId = Long.parseLong(ctx.pathParam("poemId"));  // Correct path param name

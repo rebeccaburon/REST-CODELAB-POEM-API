@@ -17,13 +17,11 @@ public class Main {
 
 
         app.get("/", ctx -> ctx.result("Hello World"));
+        app.get("/poems", controller::getAllPoems);
         app.get("/poem/{poemId}", controller::getPoemById);
         app.post("/poems", controller::createPoems);
         app.post("/poem", controller::createPoem);
         app.put("/poem/{poemId}", controller::updatePoem);
         app.delete("/poem/{poemId}", controller::deletePoem);
-
-        //app.post("/", controller::createPoem);
-
     }
 }
