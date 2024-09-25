@@ -7,6 +7,7 @@ import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.TypedQuery;
 
 import java.util.Set;
+import java.util.stream.Collectors;
 
 public class PoemDAO implements IDAO<Poem> {
     EntityManagerFactory emf;
@@ -16,15 +17,15 @@ public class PoemDAO implements IDAO<Poem> {
     }
 
     @Override
-    public Person create(Person person) {
+    public Poem create(Poem poem) {
         try (EntityManager em = emf.createEntityManager()) {
             em.getTransaction().begin();
-            em.persist(person);
+            em.persist(poem);
             em.getTransaction().commit();
         } catch (Exception e) {
             throw new JpaException("Error creating person: " + e.getMessage());
         }
-        return person;
+        return poem;
     }
 
 
@@ -34,17 +35,25 @@ public class PoemDAO implements IDAO<Poem> {
     }
 
     @Override
-    public void delete(Person person) {
+    public void delete(Poem poem) {
 
     }
 
-    @Override
-    public Person getById(Long id) {
+    public Poem getById(Long id) {
+        try(EntityManager em = emf.createEntityManager()){
+            return em.find(Poem.class, id);
+        }
+        catch (Exception e){
+            System.out.println("Poem with id " + id + " not found");
+        }
         return null;
     }
 
-    @Override
-    public Set<Person> getAll() {
-        return Set.of();
+    public Set<Poem> getAll() {
+        try (EntityManager em = emf.createEntityManager()) {
+            TypedQuery<Poem> query = em.createQuery("Select p from Poem p", Poem.class);
+            Set<Poem> poemList = query.getResultStream().collect(Collectors.toSet());
+            return poemList;
+        }
     }
 }

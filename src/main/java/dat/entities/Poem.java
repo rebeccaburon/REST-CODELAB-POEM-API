@@ -1,6 +1,6 @@
 package dat.entities;
 
-import dat.dto.PoemDTO;
+import dat.dtos.PoemDTO;
 import dat.enums.Type;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
