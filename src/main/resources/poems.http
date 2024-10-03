@@ -2,16 +2,54 @@
 ### GET request for All poems
 GET http://localhost:7000/api/poem
 
-### GET request specific dog with ID
+### GET poem with ID
 GET http://localhost:7000/api/poem/1
 
-### POST for creating a dog
-POST http://localhost:700/api/dogs/dog
+### POST for creating one poem
+POST http://localhost:7000/api/poem/poem
 Content-Type: application/json
+Accept: application/json
 
-### UPDATE a dog
-PUT http://localhost:7000/api/dogs/1
+{
+  "author": "Mirokino Mu",
+  "type":"HAIKO",
+  "poem": "Never give up on your dreams. It's not to late."
+}
+### POST list of poems
+POST http://localhost:7000/api/poem/poems
+Content-Type: application/json
+Accept: application/json
 
-### DELETE a dog
-DELETE http://localhost:7000/api/dogs/3
+[
+  {
+    "author": "Alice Johnson",
+    "poem": "Sunrise paints the sky, Gentle waves kiss sandy shores, Day awakens slow.",
+    "type": "HAIKO"
+  },
+  {
+    "author": "Robert Adams",
+    "poem": "Whispers of the breeze, Autumn leaves dance on the ground, Silent moonrise glow.",
+    "type": "HAIKO"
+  },
+  {
+    "author": "Michael Brown",
+    "poem": "Spring blossoms unfold, Petals drift in morning light, Bees hum, day is bright.",
+    "type": "HAIKO"
+  }
+]
+
+
+### UPDATE a poem
+PUT http://localhost:7000/api/poem/1
+Content-Type: application/json
+Accept: application/json
+
+{
+  "author": "Emily Baker",
+  "poem": "Winter's first soft snow, Blankets fields in quiet white, Footsteps lost below.",
+  "type": "HAIKO"
+}
+
+### DELETE a poem
+DELETE http://localhost:7000/api/poem/5
 

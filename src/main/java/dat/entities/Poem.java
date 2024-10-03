@@ -18,14 +18,16 @@ import lombok.ToString;
 public class Poem {
     @Id
     @GeneratedValue (strategy = GenerationType.IDENTITY)
+    @Column (name ="id",nullable = false, unique = true)
     private long id;
+    @Column(name="author", nullable = false)
     private String author;
     @Enumerated(EnumType.STRING)
+    @Column(name="type",nullable = false)
     private Type type;
     private String poem;
     
     public Poem (PoemDTO poemDTO){
-    this.id = poemDTO.getId();
     this.author = poemDTO.getAuthor();
     this.type = poemDTO.getType();
     this.poem = poemDTO.getPoem();

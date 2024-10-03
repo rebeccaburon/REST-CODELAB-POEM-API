@@ -2,9 +2,9 @@ package dat.dtos;
 
 import dat.entities.Poem;
 import dat.enums.Type;
-import jakarta.persistence.EnumType;
-import jakarta.persistence.Enumerated;
 import lombok.*;
+
+import java.util.List;
 
 @Getter
 @Setter
@@ -15,7 +15,6 @@ public class PoemDTO {
 
     private long id;
     private String author;
-    @Enumerated(EnumType.STRING)
     private Type type;
     private String poem;
 
@@ -25,4 +24,9 @@ public class PoemDTO {
         this.type = poem.getType();
         this.poem = poem.getPoem();
     }
+
+    public static List<PoemDTO> toDTOList(List<Poem> poems){
+        return poems.stream().map(PoemDTO::new).toList();
+    }
+
 }
